@@ -25,6 +25,13 @@ const ServicesV3 = lazy(() => import("./pages/v3/services"));
 const AboutV3 = lazy(() => import("./pages/v3/about"));
 const ContactV3 = lazy(() => import("./pages/v3/contact"));
 
+// Version 4
+const Version4 = lazy(() => import("./pages/v4"));
+const UseCasesV4 = lazy(() => import("./pages/v4/use-cases"));
+const DocsV4 = lazy(() => import("./pages/v4/docs"));
+const PricingV4 = lazy(() => import("./pages/v4/pricing"));
+const CompanyV4 = lazy(() => import("./pages/v4/company"));
+
 function App() {
   return (
     <div>
@@ -51,6 +58,13 @@ function App() {
           <Route path="/v3/services" element={<ServicesV3 />} />
           <Route path="/v3/about" element={<AboutV3 />} />
           <Route path="/v3/contact" element={<ContactV3 />} />
+
+          {/* Version 4 Routes */}
+          <Route path="/v4" element={<Version4 />} />
+          <Route path="/v4/use-cases" element={<UseCasesV4 />} />
+          <Route path="/v4/docs" element={<DocsV4 />} />
+          <Route path="/v4/pricing" element={<PricingV4 />} />
+          <Route path="/v4/company" element={<CompanyV4 />} />
 
           {/* Redirect old routes to v1 */}
           <Route path="/portfolio" element={<Navigate to="/v1/portfolio" />} />

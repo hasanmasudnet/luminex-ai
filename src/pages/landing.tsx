@@ -133,6 +133,50 @@ export default function LandingPage() {
             </div>
           </Link>
         </motion.div>
+
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="group relative"
+        >
+          <Link
+            to="/v7"
+            className="block aspect-video w-full overflow-hidden rounded-xl bg-black p-8 relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#E2FF00]/20 to-transparent group-hover:opacity-75 transition-opacity" />
+            <div className="relative z-10">
+              <h2 className="text-4xl font-bold tracking-tighter text-white mb-4">
+                Version 7<span className="text-[#E2FF00]">★</span>
+              </h2>
+              <p className="text-zinc-400 tracking-wide">
+                Bold, modern photography portfolio with neon accents and dynamic
+                typography.
+              </p>
+            </div>
+          </Link>
+        </motion.div>
+
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="group relative"
+        >
+          <Link
+            to="/v8"
+            className="block aspect-video w-full overflow-hidden rounded-xl bg-black p-8 relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#FF4D4D]/20 to-transparent group-hover:opacity-75 transition-opacity" />
+            <div className="relative z-10">
+              <h2 className="text-4xl font-bold tracking-tighter text-white mb-4">
+                Version 8
+              </h2>
+              <p className="text-zinc-400 tracking-wide">
+                Professional photography studio with vibrant red accents and
+                clean design.
+              </p>
+            </div>
+          </Link>
+        </motion.div>
       </div>
     </div>
   );

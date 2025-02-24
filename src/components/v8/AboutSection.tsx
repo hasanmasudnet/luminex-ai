@@ -1,78 +1,88 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const AboutSection = () => {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (delay: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        delay: delay,
-      },
-    }),
-  };
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   return (
-    <div className="py-20 bg-black">
+    <section className="min-h-screen bg-black relative overflow-hidden py-20">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <motion.h2
-              custom={0.2}
-              variants={fadeIn}
-              initial="hidden"
-              animate="visible"
-              className="text-6xl font-bold text-white tracking-tighter mb-8"
-            >
-              ABOUT
-              <br />
-              THE STUDIO
-            </motion.h2>
-
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            style={{ scale, y }}
+            className="relative aspect-[4/5] overflow-hidden"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e"
+              alt="Studio"
+              className="w-full h-full object-cover"
+            />
             <motion.div
-              custom={0.4}
-              variants={fadeIn}
-              initial="hidden"
-              animate="visible"
-              className="space-y-6 text-white/70"
+              className="absolute inset-0 bg-gradient-to-t from-black to-transparent"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+            />
+          </motion.div>
+
+          <div className="relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-8"
             >
-              <p>
-                Founded in 2010, CAPTURE STUDIO has established itself as a
-                leading name in professional photography, known for our
-                distinctive style and innovative approach.
-              </p>
-              <p>
-                Our work has been featured in leading magazines and we've
-                collaborated with some of the most prestigious brands in the
-                industry.
-              </p>
+              <div className="text-xs tracking-[0.3em] text-zinc-500">
+                ABOUT US
+              </div>
+              <h2 className="text-4xl md:text-5xl font-light text-white leading-tight">
+                Capturing moments,
+                <br />
+                <span className="italic text-zinc-500">creating memories</span>
+              </h2>
+              <div className="space-y-4 text-zinc-400 leading-relaxed">
+                <p>
+                  Founded in 2010, Vision has established itself as a leading
+                  name in contemporary photography, known for our distinctive
+                  aesthetic and innovative approach.
+                </p>
+                <p>
+                  Our work has been featured in leading publications and we've
+                  collaborated with some of the most prestigious brands in the
+                  industry.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-3 gap-8 pt-8">
+                {[
+                  { number: "15+", label: "Years Experience" },
+                  { number: "200+", label: "Happy Clients" },
+                  { number: "50+", label: "Awards Won" },
+                ].map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text-2xl text-white font-light mb-2">
+                      {stat.number}
+                    </div>
+                    <div className="text-xs tracking-[0.2em] text-zinc-500">
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
-
-          <motion.div
-            custom={0.6}
-            variants={fadeIn}
-            initial="hidden"
-            animate="visible"
-            className="relative"
-          >
-            <div className="aspect-[4/3] overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e"
-                alt="Studio"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-8 -left-8 bg-[#FF4D4D] text-white p-8">
-              <p className="text-5xl font-bold mb-2">15+</p>
-              <p className="text-sm tracking-[0.2em]">YEARS OF EXPERIENCE</p>
-            </div>
-          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

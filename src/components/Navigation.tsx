@@ -9,11 +9,11 @@ interface NavigationProps {
 
 const Navigation = ({
   links = [
-    { href: "/", label: "Home" },
-    { href: "/portfolio", label: "Portfolio" },
-    { href: "/services", label: "Services" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/v1", label: "Home" },
+    { href: "/v1/portfolio", label: "Portfolio" },
+    { href: "/v1/services", label: "Services" },
+    { href: "/v1/about", label: "About" },
+    { href: "/v1/contact", label: "Contact" },
   ],
 }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);

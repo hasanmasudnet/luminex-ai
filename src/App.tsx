@@ -39,6 +39,13 @@ const CollectionsV5 = lazy(() => import("./pages/v5/collections"));
 const AboutV5 = lazy(() => import("./pages/v5/about"));
 const ContactV5 = lazy(() => import("./pages/v5/contact"));
 
+// Version 6
+const Version6 = lazy(() => import("./pages/v6"));
+const WorkV6 = lazy(() => import("./pages/v6/work"));
+const StoriesV6 = lazy(() => import("./pages/v6/stories"));
+const AboutV6 = lazy(() => import("./pages/v6/about"));
+const ContactV6 = lazy(() => import("./pages/v6/contact"));
+
 function App() {
   return (
     <div>
@@ -79,6 +86,13 @@ function App() {
           <Route path="/v5/collections" element={<CollectionsV5 />} />
           <Route path="/v5/about" element={<AboutV5 />} />
           <Route path="/v5/contact" element={<ContactV5 />} />
+
+          {/* Version 6 Routes */}
+          <Route path="/v6" element={<Version6 />} />
+          <Route path="/v6/work" element={<WorkV6 />} />
+          <Route path="/v6/stories" element={<StoriesV6 />} />
+          <Route path="/v6/about" element={<AboutV6 />} />
+          <Route path="/v6/contact" element={<ContactV6 />} />
 
           {/* Redirect old routes to v1 */}
           <Route path="/portfolio" element={<Navigate to="/v1/portfolio" />} />

@@ -22,7 +22,7 @@ const Navigation = ({
       <div className="container mx-auto px-6 h-24 flex items-center justify-between">
         <Link to="/v2" className="relative group">
           <motion.div
-            className="text-white font-exo text-2xl tracking-wider"
+            className="text-white text-2xl font-light tracking-[0.2em]"
             whileHover={{ y: -2 }}
           >
             LUMINEX
@@ -36,10 +36,10 @@ const Navigation = ({
           {links.map((link) => (
             <Link key={link.href} to={link.href} className="relative group">
               <motion.span
-                className="text-white/90 hover:text-white font-montserrat text-sm tracking-wide transition-colors"
+                className="text-white/90 hover:text-white text-sm tracking-[0.3em] transition-colors"
                 whileHover={{ y: -2 }}
               >
-                {link.label}
+                {link.label.toUpperCase()}
               </motion.span>
               <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 group-hover:w-full transition-all duration-300" />
             </Link>

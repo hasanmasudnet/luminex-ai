@@ -18,9 +18,13 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-exo text-white mb-6 leading-tight">
-              Capturing Moments in
-              <span className="text-purple-400"> Perfect Light</span>
+            <h2 className="text-white/70 text-sm tracking-[0.3em] mb-4">
+              PHOTOGRAPHY STUDIO
+            </h2>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white mb-6 leading-tight">
+              Capturing
+              <br />
+              <span className="italic">Perfect</span> Light
             </h1>
           </motion.div>
 
@@ -28,7 +32,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 font-montserrat mb-12 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-white/70 tracking-wide mb-12 max-w-2xl mx-auto"
           >
             Professional photography that transforms ordinary moments into
             extraordinary memories.
@@ -42,22 +46,27 @@ const HeroSection = () => {
           >
             <Link
               to="/v2/portfolio"
-              className="group relative overflow-hidden rounded-full bg-purple-500 px-8 py-3 inline-flex items-center"
+              className="group inline-flex items-center gap-2 text-white text-sm tracking-[0.3em] hover:text-purple-400 transition-colors"
             >
-              <span className="relative z-10 text-black font-exo font-medium pr-2">
-                View Portfolio
-              </span>
-              <ArrowRight size={18} className="relative z-10 text-black" />
-              <div className="absolute inset-0 bg-purple-400 transform translate-y-full transition-transform group-hover:translate-y-0" />
+              VIEW PORTFOLIO
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ArrowRight size={16} />
+              </motion.span>
             </Link>
             <Link
               to="/v2/contact"
-              className="group relative overflow-hidden rounded-full px-8 py-3 inline-flex items-center border border-purple-400/50"
+              className="group inline-flex items-center gap-2 text-white text-sm tracking-[0.3em] hover:text-purple-400 transition-colors"
             >
-              <span className="relative z-10 text-white font-exo font-medium">
-                Get in Touch
-              </span>
-              <div className="absolute inset-0 bg-purple-400/10 transform translate-y-full transition-transform group-hover:translate-y-0" />
+              GET IN TOUCH
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ArrowRight size={16} />
+              </motion.span>
             </Link>
           </motion.div>
         </div>
